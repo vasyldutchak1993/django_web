@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Member Details{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white d-flex align-items-center">
+      <i class="fas fa-user-circle fa-2x me-3"></i>
+      <h4 class="mb-0">{{ member.firstname }} {{ member.lastname }}</h4>
+    </div>
+
+    <div class="card-body">
+      <p><strong>Email:</strong> {{ member.email }}</p>
+      <p><strong>ID:</strong> {{ member.id }}</p>
+
+      {% if member.phone %}
+        <p><strong>Phone:</strong> {{ member.phone }}</p>
+      {% endif %}
+
+      {% if member.created_at %}
+        <p><strong>Joined:</strong> {{ member.created_at|date:"F d, Y" }}</p>
+      {% endif %}
+    </div>
+
+    <div class="card-footer text-end">
+      <a href="{% url 'members:index' %}" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to List
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
