@@ -14,7 +14,16 @@
                     <a class="nav-link  {% if request.resolver_match.url_name == 'index' %}active{% endif %}"
                        aria-current="page" href="{% url 'members:index' %}">Home</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                       href="{% url 'members:about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'members' %}active{% endif %}" href="#">Members</a>
+                </li>
             </ul>
         </div>
     </div>
