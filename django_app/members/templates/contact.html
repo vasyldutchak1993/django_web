@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4"><i class="fas fa-envelope-open-text me-2"></i>Contact Us</h1>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <h5><i class="fas fa-map-marker-alt me-2 text-danger"></i> Address</h5>
+      <p>123 Member Street, Kyiv, Ukraine</p>
+
+      <h5><i class="fas fa-phone-alt me-2 text-success"></i> Phone</h5>
+      <p>+380 99 123 4567</p>
+
+      <h5><i class="fas fa-envelope me-2 text-primary"></i> Email</h5>
+      <p>contact@example.com</p>
+    </div>
+
+    <div class="col-md-6">
+      <h5><i class="fas fa-paper-plane me-2 text-info"></i>Send a Message</h5>
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Введіть ім’я">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="4" placeholder="Ваше повідомлення..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane me-1"></i> Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
