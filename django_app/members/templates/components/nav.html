@@ -40,6 +40,10 @@
                     <a class="nav-link {% if request.resolver_match.url_name == 'static_template_view' %}active{% endif %}"
                        href="{% url 'members:static_template_view' %}">static template view</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'contact_form' %}active{% endif %}"
+                       href="{% url 'members:contact_form' %}">Contact</a>
+                </li>
             </ul>
         </div>
     </div>

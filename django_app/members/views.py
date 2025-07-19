@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.views import View
 
 from .models import Member
 
@@ -50,3 +51,20 @@ def submit_feedback(request):
         return redirect('members:submit_feedback')
     elif request.method == 'GET':
         return render(request, 'task_class_view/submit_feedback.html')
+
+class ContactView(View):
+    template_name = 'task_class_view/contact.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        print(f"Name: {name}, Email: {email}, Message: {message}")
+
+        messages.success(request, f"Hello, {name}, your message was send ,{message}")
+
+        return render(request, self.template_name)
