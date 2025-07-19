@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
 from .models import Member
@@ -40,3 +40,13 @@ def process_get_form_request(request):
 def category_selection_form(request):
     choice = request.GET.get('category')
     return render(request, 'task_class_view/category_selection_form.html', {'choice': choice})
+
+def submit_feedback(request):
+    if request.method == 'POST':
+        feedback = request.POST.get('feedback')
+        username = request.POST.get('username')
+        print(feedback, username)
+        messages.success(request, f"hello {username} your message was send ,{feedback}")
+        return redirect('members:submit_feedback')
+    elif request.method == 'GET':
+        return render(request, 'task_class_view/submit_feedback.html')
