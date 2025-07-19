@@ -28,6 +28,10 @@
                     <a class="nav-link {% if request.resolver_match.url_name == 'process_get_form' %}active{% endif %}"
                        href="{% url 'members:process_get_form' %}">process get form</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'category_selection_form' %}active{% endif %}"
+                       href="{% url 'members:category_selection_form' %}">category selection form</a>
+                </li>
             </ul>
         </div>
     </div>

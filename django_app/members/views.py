@@ -36,3 +36,7 @@ def process_get_form_request(request):
     gender = request.GET.get('gender')
     context = {'username': username, 'email': email, 'message': message, 'gender': gender}
     return render(request, 'task_class_view/process_get_form.html', context)
+
+def category_selection_form(request):
+    choice = request.GET.get('category')
+    return render(request, 'task_class_view/category_selection_form.html', {'choice': choice})
