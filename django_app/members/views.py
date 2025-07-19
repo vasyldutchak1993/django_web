@@ -28,3 +28,11 @@ def member_detail(request, id):
     member = get_object_or_404(Member, id=id)
     context = {'member': member}
     return render(request, 'member_detail.html', context)
+
+def process_get_form_request(request):
+    username = request.GET.get('username')
+    email = request.GET.get('email')
+    message = request.GET.get('message')
+    gender = request.GET.get('gender')
+    context = {'username': username, 'email': email, 'message': message, 'gender': gender}
+    return render(request, 'task_class_view/process_get_form.html', context)

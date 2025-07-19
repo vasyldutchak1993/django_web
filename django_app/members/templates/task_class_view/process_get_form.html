@@ -1,0 +1,61 @@
+{%extends 'base.html'%}
+{%block title%}Odoslanie GET{%endblock%}
+{%block content%}
+<div class="container">
+    <h1 class="card p-4 mt-3">Process get form</h1>
+    <form method="get" class="p-4 border rounded bg-light shadow-sm">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username"
+                   placeholder="Введіть ім’я користувача">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com">
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4"
+                      placeholder="type your message"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" id="gender" name="gender">
+                <option value="" selected disabled>Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <ul class="list-group mt-3">
+        {% if username %}
+        <li class="list-group-item"><strong>Username:</strong> {{ username }}</li>
+        {% endif %}
+
+        {% if email %}
+        <li class="list-group-item"><strong>Email:</strong> {{ email }}</li>
+        {% endif %}
+
+        {% if gender %}
+        <li class="list-group-item"><strong>Gender:</strong>
+            {% if gender == "male" %}
+            Male
+            {% elif gender == "female" %}
+            Female
+            {% else %}
+            Not specified
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if message %}
+        <li class="list-group-item"><strong>Message:</strong><br> {{ message|linebreaksbr }}</li>
+        {% endif %}
+    </ul>
+</div>
+{%endblock%}

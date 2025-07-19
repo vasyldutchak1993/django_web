@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, about, contact, members, member_detail
+from .views import index, about, contact, members, member_detail,process_get_form_request
 
 app_name = 'members'
 
@@ -9,4 +9,5 @@ urlpatterns = [
     path('contact/', contact,name='contact'),
     path('members/', members,name='members'),
     path('members/<int:id>', member_detail,name='detail'),
+    path('process_get_form/',process_get_form_request,name='process_get_form'),
 ]
